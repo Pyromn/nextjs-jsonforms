@@ -11,6 +11,10 @@
       "scope": "#/properties/name"
     },
     {
+      "type": "Control",
+      "scope": "#/properties/email"
+    },
+    {
       "type": "HorizontalLayout",
       "elements": [
         {

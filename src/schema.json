@@ -1,32 +1,45 @@
 {
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string",
-      "minLength": 1
+    "id": {
+      "title": "Id",
+      "type": "integer"
     },
-    "description": {
-      "title": "Long Description",
+    "name": {
+      "default": "John Doe",
+      "title": "Name",
       "type": "string"
     },
-    "done": {
-      "type": "boolean"
+    "email": {
+      "default": "test@gmail.com",
+      "title": "Email",
+      "type": "string"
     },
-    "due_date": {
-      "type": "string",
-      "format": "date"
+    "signup_ts": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Signup Ts"
     },
-    "rating": {
-      "type": "integer",
-      "maximum": 5
-    },
-    "recurrence": {
-      "type": "string",
-      "enum": ["Never", "Daily", "Weekly", "Monthly"]
-    },
-    "recurrence_interval": {
-      "type": "integer"
+    "tastes": {
+      "additionalProperties": {
+        "exclusiveMinimum": 0,
+        "type": "integer"
+      },
+      "title": "Tastes",
+      "type": "object"
     }
   },
-  "required": ["name", "due_date"]
+  "required": [
+    "id",
+    "signup_ts",
+    "tastes"
+  ],
+  "title": "User",
+  "type": "object"
 }
